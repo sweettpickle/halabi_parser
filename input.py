@@ -5,7 +5,7 @@ import lxml
 
 if __name__ == '__main__':
     # input1 = input("Введите запрос для булевой модели (используя 'or', 'end' или 'not'): \n")
-    input1 = 'дорога'
+    input1 = 'свет дорога'
     map_terms = {}
     url = 'http://www.serelex.org/find/ru-patternsim-ruwac-wiki/'
     for i in input1.split():
@@ -20,10 +20,8 @@ if __name__ == '__main__':
         for j in range(len(mas)):
             if mas[j] == '"word":':
                 mas_words.append(mas[j + 1][1:-2])
-        # print(mas_words)
 
-        map_terms = {i: mas_words}
+        map_terms[i] = mas_words
 
-        # if (i != "not" or i != "end" or i != "or"):
-        #     map_terms = {i: mas}
-    print(map_terms)
+    print(map_terms["дорога"])
+    print(map_terms["свет"])
